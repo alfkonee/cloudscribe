@@ -1,0 +1,153 @@
+
+http://jeremybytes.blogspot.com/2014/02/demystifying-var-keyword-in-c.html
+
+C# Reference:
+https://msdn.microsoft.com/en-us/library/ms173224.aspx
+
+
+http://stackoverflow.com/questions/3485317/entity-framework-4-single-vs-first-vs-firstordefault
+
+Find() - when you want to get an item by primary key. This will return null if it can't find an item. It will look in the context before going to the database (as pointed out by Yaron in the comments) which can be an important efficiency factor if you need to get the same entity multiple times while the same context is alive.
+
+Single() - when you expect exactly one item to be returned by a query. This will throw an exception if the query does not return exactly one item.
+
+SingleOrDefault() - when you expect zero or one items to be returned by a query (i.e. you are not sure if an item with a given key exists). This will throw an exception if the query does not return zero or one items.
+
+First() - when you expect one or more items to be returned by a query but you only want to access the first item in your code (ordering could be important in the query here). This will throw an exception if the query does not return at least one item.
+
+FirstOrDefault() - when you expect zero or more items to be returned by a query but you only want to access the first item in your code (i.e. you are not sure if an item with a given key exists)
+
+http://stackoverflow.com/questions/818642/singleordefault-how-to-change-the-default-values
+
+http://stackoverflow.com/questions/6033390/what-is-the-most-reasonable-way-to-find-out-if-entity-is-attached-to-dbcontext-o/6037277#6037277
+http://stackoverflow.com/questions/10027493/entityframework-code-first-check-if-entity-is-attached
+
+
+http://ef.readthedocs.org/en/latest/modeling/configuring.html
+
+https://github.com/aspnet/EntityFramework/wiki/Configuring-a-DbContext
+
+https://github.com/aspnet/EntityFramework/wiki/Guiding-Principles
+
+https://github.com/aspnet/EntityFramework/wiki/Security
+
+https://github.com/aspnet/EntityFramework/wiki/Visual-Studio-Publish-Integration
+
+https://github.com/aspnet/EntityFramework/wiki/Writing-an-EF7-Provider
+
+http://blogs.msdn.com/b/adonet/archive/2014/10/27/ef7-v1-or-v7.aspx
+
+http://wildermuth.com/2015/3/17/A_Look_at_ASP_NET_5_Part_3_-_EF7
+
+https://channel9.msdn.com/Blogs/Seth-Juarez/Migrations-in-Entity-Framework-7-with-Brice-Lambson
+
+http://www.jerriepelser.com/blog/moving-entity-framework-7-models-to-external-project
+
+dnx ef migrations add Initial
+
+http://www.jerriepelser.com/blog/resolve-dbcontext-as-interface-in-aspnet5-ioc-container
+
+http://stackoverflow.com/questions/27220714/ramifications-of-using-dbcontext-with-dependency-injection
+
+http://davidzych.com/unit-testing-entity-framework-7-with-the-in-memory-data-store/
+
+
+
+
+dnx ef --help
+Entity Framework Commands 7.0.0-rc1-16348
+
+Usage: dnx ef [options] [command]
+
+Options:
+  --version     Show version information
+  -?|-h|--help  Show help information
+
+Commands:
+  database    Commands to manage your database
+  dbcontext   Commands to manage your DbContext types
+  migrations  Commands to manage your migrations
+
+Use "dnx ef [command] --help" for more information about a command.
+
+dnx ef --help migrations
+Entity Framework Commands 7.0.0-rc1-16348
+
+Usage: dnx ef [options] [command]
+
+Options:
+  --version     Show version information
+  -?|-h|--help  Show help information
+
+Commands:
+  database    Commands to manage your database
+  dbcontext   Commands to manage your DbContext types
+  migrations  Commands to manage your migrations
+
+Use "dnx ef [command] --help" for more information about a command.
+
+dnx ef migrations --help
+
+dnx ef database --help
+
+
+Usage: dnx ef migrations [options] [command]
+
+Options:
+  -?|-h|--help  Show help information
+
+Commands:
+  add     Add a new migration
+  list    List the migrations
+  remove  Remove the last migration
+  script  Generate a SQL script from migrations
+
+Use "migrations [command] --help" for more information about a command.
+
+dnx ef migrations add --help
+
+Usage: dnx ef migrations add [arguments] [options]
+
+Arguments:
+  [name]  The name of the migration
+
+Options:
+  -o|--outputDir                  The directory (and sub-namespace) to use. If omitted, "Migrations" is used.
+  -c|--context <context>          The DbContext to use. If omitted, the default DbContext is used
+  -p|--targetProject <project>    The project to add the migration to. If omitted, the current project is used.
+  -e|--environment <environment>  The environment to use. If omitted, "Development" is used.
+  -v|--verbose                    Show verbose output
+  -?|-h|--help                    Show help information
+
+dnx ef migrations add Initial -c CoreDbContext
+dnx ef migrations add Initial -c LoggingDbContext
+
+
+
+dnx ef database --help
+
+
+Usage: dnx ef database [options] [command]
+
+Options:
+  -?|-h|--help  Show help information
+
+Commands:
+  update  Updates the database to a specified migration
+
+Use "database [command] --help" for more information about a command.
+
+dnx ef database update --help
+
+Usage: dnx ef database update [arguments] [options]
+
+Arguments:
+  [migration]  The target migration. If '0', all migrations will be reverted. If omitted, all pending migrations will be applied
+
+Options:
+  -c|--context <context>          The DbContext to use. If omitted, the default DbContext is used
+  -p|--targetProject <project>    The project with the Migration classes. If omitted, the current project is used.
+  -e|--environment <environment>  The environment to use. If omitted, "Development" is used.
+  -v|--verbose                    Show verbose output
+  -?|-h|--help                    Show help information
+

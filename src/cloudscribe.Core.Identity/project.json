@@ -1,0 +1,58 @@
+{
+  "version": "1.0.0-*",
+  "title": "cloudscribe.Core.Identity",
+    "description": "asp.net identity implementation for cloudscribe web application foundation you should not normally install this separately, it will be installed if you install cloudscribe.Core.Web",
+    "authors": [ "Joe Audette" ],
+  "owners": [ "Source Tree Solutions" ],
+  "tags": [ "cloudscribe","identity" ],
+  "projectUrl": "https://github.com/joeaudette/cloudscribe",
+  "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0",
+  "copyright": "2015 Source Tree Solutions",
+  "iconUrl": "https://raw.githubusercontent.com/joeaudette/cloudscribe/master/cloudscribe-icon-32.png",
+  "requireLicenseAcceptance": false,
+  "releaseNotes": "",
+
+  "dependencies": {
+    "cloudscribe.Core.Models": "1.0.0-*",
+    "Microsoft.AspNet.Authentication": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Authentication.Facebook": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Authentication.Google": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Authentication.MicrosoftAccount": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Authentication.OAuth": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Authentication.Twitter": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Cryptography.KeyDerivation": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Hosting": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Http": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Http.Features": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Identity": "3.0.0-rc1-final",
+    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+    "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+    "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
+    "Microsoft.Extensions.WebEncoders": "1.0.0-rc1-final"
+  },
+
+  "frameworks": {
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Configuration": "4.0.0.0",
+        "System.Security": "4.0.0.0",
+        "System.Web.ApplicationServices": "4.0.0.0",
+        "System.Xml": "4.0.0.0",
+        "System.Xml.Linq": "4.0.0.0"
+      }
+
+    },
+    "dnxcore50": {
+      "dependencies": {
+        "System.Collections": "4.0.11-beta-23516",
+        "System.Linq": "4.0.1-beta-23516",
+        "System.Runtime": "4.0.21-beta-23516",
+        "Microsoft.CSharp": "4.0.1-beta-23516",
+        "System.Security.Claims": "4.0.1-beta-23516"
+      }
+    }
+  }
+}

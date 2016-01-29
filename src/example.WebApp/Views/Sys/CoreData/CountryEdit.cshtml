@@ -1,0 +1,54 @@
+﻿@model cloudscribe.Core.Web.ViewModels.CoreData.GeoCountryViewModel
+
+@{
+    
+}
+
+<h2>@ViewBag.Title</h2>
+<form role="form" asp-controller="CoreData" asp-action="CountryEdit">
+    <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>
+    <input asp-for="Guid" type="hidden" />
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ISOCode2" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="ISOCode2" class="form-control" />
+            <span asp-validation-for="ISOCode2" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ISOCode3" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="ISOCode3" class="form-control" />
+            <span asp-validation-for="ISOCode3" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="CommonResources.Save" class="btn btn-default" />
+            @if (Model.Guid != Guid.Empty)
+            {
+                <button name="button" type="button" class="btn btn-default"
+                        onclick="javascript: if(confirm('@Html.FormatValue(Model.Name, "Are you sure you want to delete the country {0} and all of its states? You cannot undo this action.")')) {$('#deleteform').submit();}">
+                    CommonResources.Delete
+                </button>
+            }
+        </div>
+    </div>
+</form>   
+@if (Model.Guid != Guid.Empty)
+{
+    <form id="deleteform" asp-controller="CoreData" asp-action="CountryDelete">
+        <input type="hidden" id="countryGuid" name="countryGuid" value="@Model.Guid" />
+        <input type="hidden" asp-for="ReturnPageNumber" />
+    </form>   
+}
+<div>
+    <a class="btn btn-default" asp-action="CountryListPage" asp-route-pagenumber="@Model.ReturnPageNumber">CommonResources.BackToCountryList</a>  
+</div>

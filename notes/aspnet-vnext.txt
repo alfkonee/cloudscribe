@@ -1,4 +1,17 @@
 
+#dnxcore50 when you need to find out the package for a namespace:
+https://packagesearch.azurewebsites.net/
+
+http://rion.io/2015/11/13/understanding-routing-precedence-in-asp-net-mvc/
+
+http://odetocode.com/blogs/scott/archive/2015/11/30/working-with-typed-headers-in-asp-net.aspx
+
+http://dotnetliberty.com/index.php/2015/12/07/asp-net-5-web-api-faking-it-while-making-it/
+
+
+http://blogs.msdn.com/b/webdev/archive/2015/11/18/announcing-asp-net-5-release-candidate-1.aspx
+
+
 http://stackoverflow.com/questions/29048122/token-based-authentication-in-asp-net-5-vnext/29698502#29698502
 http://stackoverflow.com/questions/33140360/getting-access-token
 
@@ -16,6 +29,10 @@ http://stackoverflow.com/questions/33076063/resource-specific-authorization-in-a
 
 Really good article even if not converting something from web api to mvc6
 http://www.dotnetcurry.com/aspnet-mvc/1149/convert-aspnet-webapi2-aspnet5-mvc6
+
+We should follow the same engineering guidelines as Microsoft
+https://github.com/aspnet/Home/wiki/Engineering-guidelines#cross-platform-coding
+
 
 Routing deep dive
 http://stephenwalther.com/archive/2015/02/07/asp-net-5-deep-dive-routing

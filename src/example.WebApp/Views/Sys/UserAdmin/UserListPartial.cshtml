@@ -1,0 +1,20 @@
+﻿@model cloudscribe.Core.Web.ViewModels.UserAdmin.UserListViewModel
+@inject IViewLocalizer Localizer
+@{
+    
+}
+
+@if (Model.ShowAlphaPager)
+{
+    <div>
+        @Html.AlphabeticPager(Model.AlphaQuery,
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            null,
+            "CommonResources.All",
+            "",
+            false,
+            x => Url.Action("Index", new { siteGuid = Model.SiteGuid, query = x })
+    )
+    </div>
+}
+@{await Html.RenderPartialAsync("UserGridPartial", Model); }
